@@ -46,7 +46,7 @@ io.sockets.on('connection', function (socket) {
 	
 	socket.on('getUsers', function (data) {
 		console.log(data);
-		
+		console.log(socket.client.conn.remoteAddress);
 	});
 	
 	

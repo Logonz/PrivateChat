@@ -57,18 +57,30 @@ window.onload = function() {
             console.log("There is a problem:", data);
         }
     });
+	
     sendButton.onclick = function() {
-		var msg = CryptoJS.AES.encrypt(
-		  field.value,
-		  password.value
-		);
-		msg = CryptoJS.enc.Utf8.parse(msg);
-		field.value = "";
-        socket.emit('send', { 
-			encrypted: true,
-			type: "string",
-			message: msg
-		});
+		if(password.value != "")
+		{
+			var msg = CryptoJS.AES.encrypt(
+			  field.value,
+			  password.value
+			);
+			msg = CryptoJS.enc.Utf8.parse(msg);
+			field.value = "";
+			socket.emit('send', { 
+				encrypted: true,
+				type: "string",
+				message: msg
+			});
+		}
+		else
+		{
+			socket.emit('send', { 
+				encrypted: false,
+				type: "string",
+				message: field.value
+			});
+		}
     };
  
 }

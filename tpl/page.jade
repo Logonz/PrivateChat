@@ -12,9 +12,11 @@ html(lang="en")
 		script(src='/crypto-js/aes.js')
 		script(src='/chat.js')
 	body
-		#content(style='width: 500px; height: 300px; margin: 0 0 20px 0; border: solid 1px #999; overflow-y: scroll;')
-		.controls
-			input.field(id='field', style='width:350px;')
-			input.send(type='button', id='send', value='send')
-			br
-			input.field(id='password', style='width:350px;')
+	#doc(style='text-align:left;')
+		#content(style='width: 500px; height: 300px; margin: 0 0 20px 0; border: solid 1px #999; overflow-y: scroll; display:inline-block;')
+		#userList(style='width: 120px; height: 300px; margin: 0 0 20px 0; border: solid 1px #999; overflow-y: scroll; display:inline-block;')
+	.controls
+		input.field(id='field', style='width:350px;')
+		input.send(type='button', id='send', value='send')
+		br
+		input.field(id='password', style='width:350px;')
